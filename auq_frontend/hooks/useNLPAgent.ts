@@ -53,20 +53,31 @@ export const useNLPAgent = () => {
     options?: RequestInit
   ): Promise<T> => {
     try {
+      console.log(`Making API call to: ${API_BASE_URL}${endpoint}`);
+      
       const response = await fetch(`${API_BASE_URL}${endpoint}`, {
+        mode: 'cors',
+        credentials: 'omit',
         headers: {
           'Content-Type': 'application/json',
+          'Accept': 'application/json',
           ...options?.headers,
         },
         ...options,
       });
 
+      console.log(`Response status: ${response.status}`);
+      console.log(`Response headers:`, response.headers);
+
       if (!response.ok) {
         throw new Error(`API Error: ${response.status} - ${response.statusText}`);
       }
 
-      return await response.json();
+      const data = await response.json();
+      console.log('API Response:', data);
+      return data;
     } catch (err) {
+      console.error('API Call Error:', err);
       const errorMessage = err instanceof Error ? err.message : 'Unknown API error';
       setError(errorMessage);
       throw err;
