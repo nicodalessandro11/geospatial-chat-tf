@@ -2,7 +2,7 @@
 
 This monorepo contains the complete codebase for the **Are-u-Queryous?** platform, a geospatial data visualization tool designed to explore, compare, and analyze open urban datasets at multiple geographical levels.Are-u-Queryous?
 
-> Developed as part of the Universitat Oberta de Catalunya (UOC) Final Degree Project (TFG) by **Nico Dalessandro Calderon**
+> Developed as the final project for **"Valgrai IA para profesionales del sector TIC (4a edición)"** by **Nico Dalessandro Calderon**
 
 ## Monorepo Structure
 
@@ -179,11 +179,6 @@ Please attribute **Nico Dalessandro Calderon** and the **Are U Query-ous** proje
 
 The project integrates real-world open data with modern geospatial web technologies to offer a scalable, interactive platform for exploring, comparing, and understanding urban environments.
 
-It was developed as the Final Degree Project (TFG) for the **Bachelor's Degree in Techniques for Software Application Development** at the **Universitat Oberta de Catalunya (UOC)**.
+It was developed as the final project for the **"Valgrai IA para profesionales del sector TIC (4a edición)"** course.
 
-It was conducted under the thematic area of **Localization-Based Systems and Intelligent Spaces**, with the following academic guidance:
-
-* **Project Supervisor**: Dr. Joaquín Torres Sospedra
-* **Coordinating Professor**: Dr. Antoni Pérez-Navarro
-
-Special thanks to both for their continued support, feedback, and guidance throughout the development process.
+This project demonstrates the practical application of AI and NLP technologies in the geospatial and urban analytics domain, showcasing the integration of modern language models with traditional GIS databases.

@@ -166,8 +166,5 @@ pnpm build
 
 ## License & Ownership
 
-This **frontend interface** was designed and implemented by **Nico Dalessandro**
-for the UOC Final Degree Project (TFG) — "Are-u-Queryous?"
-
 All frontend code is released under the [MIT License](../LICENSE).
 You are free to use, modify, and distribute it with attribution.
