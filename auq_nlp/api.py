@@ -57,15 +57,11 @@ app = FastAPI(
 # CORS configuration for frontend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:3000", 
-        "http://127.0.0.1:3000",
-        "https://localhost:3000",
-        "*"  # Allow all origins in production - adjust for security as needed
-    ],
-    allow_credentials=True,
-    allow_methods=["*"],
+    allow_origins=["*"],  # Allow all origins for development/production
+    allow_credentials=False,  # Set to False when using wildcard origins
+    allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allow_headers=["*"],
+    expose_headers=["*"]
 )
 
 # Global variables for model
@@ -151,6 +147,12 @@ async def initialize_agent():
 @app.on_event("startup")
 async def startup_event():
     await initialize_agent()
+
+# CORS Preflight handler
+@app.options("/{path:path}")
+async def options_handler(path: str):
+    """Handle CORS preflight requests"""
+    return {"message": "OK"}
 
 # Health check endpoint
 @app.get("/health", response_model=HealthResponse)
