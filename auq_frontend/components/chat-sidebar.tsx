@@ -21,6 +21,7 @@ import {
 import { Send, Bot, User, AlertCircle, CheckCircle, XCircle, Clock, Trash2 } from "lucide-react"
 import { useMapContext } from "@/contexts/map-context"
 import { useNLPAgent } from "@/hooks/useNLPAgent"
+import { ApiTest } from "./api-test"
 
 type Message = {
   id: string
@@ -325,6 +326,13 @@ export function ChatSidebar() {
             : "AI service unavailable - Basic assistance only"
           }
         </p>
+
+        {/* Temporary debug component */}
+        {healthStatus !== 'healthy' && (
+          <div className="mt-4">
+            <ApiTest />
+          </div>
+        )}
       </div>
 
       <ScrollArea className="flex-1 p-4">

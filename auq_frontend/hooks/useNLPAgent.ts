@@ -42,46 +42,70 @@ export interface ExamplesResponse {
 // Configuration
 const API_BASE_URL = process.env.NEXT_PUBLIC_NLP_API_URL || 'https://web-production-b7778.up.railway.app';
 
+// Fallback URLs in case of DNS issues
+const FALLBACK_URLS = [
+  'https://web-production-b7778.up.railway.app',
+  // Add more fallback URLs if needed
+];
+
 export const useNLPAgent = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [lastResponse, setLastResponse] = useState<QuestionResponse | null>(null);
 
-  // Generic API call function
+  // Generic API call function with retry logic
   const apiCall = useCallback(async <T>(
     endpoint: string,
     options?: RequestInit
   ): Promise<T> => {
-    try {
-      console.log(`Making API call to: ${API_BASE_URL}${endpoint}`);
-      
-      const response = await fetch(`${API_BASE_URL}${endpoint}`, {
-        mode: 'cors',
-        credentials: 'omit',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-          ...options?.headers,
-        },
-        ...options,
-      });
+    let lastError: Error | null = null;
+    
+    // Try each URL in sequence
+    for (const baseUrl of FALLBACK_URLS) {
+      try {
+        const fullUrl = `${baseUrl}${endpoint}`;
+        console.log(`Making API call to: ${fullUrl}`);
+        
+        const response = await fetch(fullUrl, {
+          mode: 'cors',
+          credentials: 'omit',
+          cache: 'no-cache',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            ...options?.headers,
+          },
+          ...options,
+        });
 
-      console.log(`Response status: ${response.status}`);
-      console.log(`Response headers:`, response.headers);
+        console.log(`Response status: ${response.status}`);
 
-      if (!response.ok) {
-        throw new Error(`API Error: ${response.status} - ${response.statusText}`);
+        if (!response.ok) {
+          throw new Error(`API Error: ${response.status} - ${response.statusText}`);
+        }
+
+        const data = await response.json();
+        console.log('API Response success:', data);
+        return data;
+        
+      } catch (err) {
+        console.error(`API Call Error for ${baseUrl}:`, err);
+        lastError = err instanceof Error ? err : new Error('Unknown error');
+        
+        // If this is a network error (TypeError), try next URL
+        if (err instanceof TypeError && err.message.includes('Failed to fetch')) {
+          continue;
+        }
+        
+        // For other errors, don't retry
+        break;
       }
-
-      const data = await response.json();
-      console.log('API Response:', data);
-      return data;
-    } catch (err) {
-      console.error('API Call Error:', err);
-      const errorMessage = err instanceof Error ? err.message : 'Unknown API error';
-      setError(errorMessage);
-      throw err;
     }
+    
+    // If we get here, all URLs failed
+    const errorMessage = lastError?.message || 'All API endpoints failed';
+    setError(errorMessage);
+    throw lastError || new Error(errorMessage);
   }, []);
 
   // Ask a question to the NLP agent
@@ -132,6 +156,22 @@ export const useNLPAgent = () => {
     }
   }, [askQuestion]);
 
+  // Test function to check basic connectivity
+  const testConnection = useCallback(async (): Promise<boolean> => {
+    try {
+      // Try a simple fetch with minimal options
+      const response = await fetch(`${API_BASE_URL}/`, {
+        method: 'GET',
+        mode: 'cors',
+        cache: 'no-cache',
+      });
+      return response.ok;
+    } catch (err) {
+      console.error('Connection test failed:', err);
+      return false;
+    }
+  }, []);
+
   return {
     // State
     isLoading,
@@ -143,6 +183,7 @@ export const useNLPAgent = () => {
     ask,
     checkHealth,
     getExamples,
+    testConnection,
     
     // Utilities
     clearError: () => setError(null),
