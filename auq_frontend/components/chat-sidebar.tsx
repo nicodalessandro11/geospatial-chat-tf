@@ -166,7 +166,7 @@ export function ChatSidebar() {
     if (healthStatus !== 'healthy') {
       const fallbackMessage: Message = {
         id: (Date.now() + 1).toString(),
-        content: "I'm sorry, the AI service is currently unavailable. Please try again later or check if the NLP API is running on port 8000.",
+        content: "I'm sorry, the AI service is currently unavailable. Please try again later or check your internet connection.",
         sender: "bot",
         timestamp: new Date(),
         success: false
@@ -398,7 +398,7 @@ export function ChatSidebar() {
         <p className="text-xs text-muted-foreground mt-1">
           {healthStatus === 'healthy'
             ? "Press Enter to send, Shift+Enter for new line"
-            : "AI service needs to be running on port 8000"
+            : "AI service is currently unavailable. Please check connection."
           }
         </p>
       </div>

@@ -40,7 +40,7 @@ export interface ExamplesResponse {
 }
 
 // Configuration
-const API_BASE_URL = process.env.NEXT_PUBLIC_NLP_API_URL || 'http://localhost:8000';
+const API_BASE_URL = process.env.NEXT_PUBLIC_NLP_API_URL || 'https://web-production-b7778.up.railway.app';
 
 export const useNLPAgent = () => {
   const [isLoading, setIsLoading] = useState(false);
