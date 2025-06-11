@@ -13,6 +13,7 @@ License: MIT License
 import os
 import sys
 import warnings
+import time
 from pathlib import Path
 from typing import Dict, Any, Optional, List
 from pydantic import BaseModel, Field
@@ -33,12 +34,17 @@ from langchain_openai import ChatOpenAI
 from langchain_core._api.deprecation import LangChainDeprecationWarning
 from common_lib.emoji_logger import info, success, warning, error
 
+# Import our new modules
+from cache_manager import query_cache, PrecompiledQueries
+from result_validator import result_validator
+
 # Ignore LangChain internal deprecation warnings
 warnings.filterwarnings("ignore", category=LangChainDeprecationWarning)
 
 # Configuration
 BASE_DIR = Path(__file__).resolve().parents[0]
-PROMPT_PATH = BASE_DIR / "prompt" / "custom_prompt.txt"
+PROMPT_PATH = BASE_DIR / "prompt" / "enhanced_prompt.txt"  # Use enhanced prompt
+FALLBACK_PROMPT_PATH = BASE_DIR / "prompt" / "custom_prompt.txt"  # Fallback
 
 # Load environment variables
 load_dotenv()
@@ -85,6 +91,8 @@ class QuestionResponse(BaseModel):
     answer: str
     execution_time: Optional[float] = None
     error: Optional[str] = None
+    cached: Optional[bool] = False  # Indicate if response was cached
+    validation_warnings: Optional[List[str]] = None  # Data quality warnings
 
 class HealthResponse(BaseModel):
     status: str
@@ -106,23 +114,30 @@ async def initialize_agent():
         if not OPENAI_API_KEY:
             raise ValueError("OPENAI_API_KEY is missing in the .env file.")
 
-        # Load OpenAI model
+        # Load OpenAI model (upgraded to GPT-4 Turbo for better performance)
         info("Loading OpenAI model...")
         llm = ChatOpenAI(
-            model="gpt-3.5-turbo",
+            model="gpt-4-turbo-preview",  # Upgraded model
             temperature=0,
             openai_api_key=OPENAI_API_KEY,
-            request_timeout=30
+            request_timeout=60,  # Increased timeout for complex queries
+            max_tokens=1500  # Limit response length
         )
 
         # Connect to Supabase DB
         info("Connecting to Supabase database...")
         db = SQLDatabase.from_uri(SUPABASE_URI, sample_rows_in_table_info=0)
 
-        # Load prompt template
-        info("Loading prompt template...")
-        with open(PROMPT_PATH, "r") as f:
-            prompt_content = f.read()
+        # Load prompt template (with fallback)
+        info("Loading enhanced prompt template...")
+        try:
+            with open(PROMPT_PATH, "r") as f:
+                prompt_content = f.read()
+        except FileNotFoundError:
+            warning(f"Enhanced prompt not found, using fallback...")
+            with open(FALLBACK_PROMPT_PATH, "r") as f:
+                prompt_content = f.read()
+        
         custom_prompt = PromptTemplate.from_template(prompt_content)
 
         # Create the agent
@@ -172,28 +187,73 @@ async def health_check():
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Health check failed: {str(e)}")
 
-# Main question endpoint
+# Main question endpoint with enhanced processing
 @app.post("/ask", response_model=QuestionResponse)
 async def ask_question(request: QuestionRequest):
-    """Process a natural language question about urban data"""
+    """Process a natural language question about urban data with caching and validation"""
     if not agent:
         raise HTTPException(status_code=503, detail="Agent not initialized. Check /health endpoint.")
     
+    start_time = time.time()
+    
     try:
-        import time
-        start_time = time.time()
-        
         info(f"Processing question: {request.question}")
         
-        # Build context-aware input
+        # Build context string for caching
+        context = ""
+        if request.conversation_history:
+            context = "|".join([f"{msg.role}:{msg.content}" for msg in request.conversation_history[-2:]])
+        
+        # 1. Check cache first
+        cached_response = query_cache.get(request.question, context)
+        if cached_response:
+            info(f"Cache hit for question: {request.question}")
+            cached_response["cached"] = True
+            cached_response["execution_time"] = time.time() - start_time
+            return QuestionResponse(**cached_response)
+        
+        # 2. Check for pre-compiled queries
+        precompiled = PrecompiledQueries.find_matching_query(request.question)
+        if precompiled:
+            info(f"Using pre-compiled query for: {request.question}")
+            try:
+                # Execute the pre-compiled SQL directly
+                from langchain_community.utilities import SQLDatabase
+                db = SQLDatabase.from_uri(SUPABASE_URI)
+                
+                sql_result = db.run(precompiled["sql"])
+                formatted_answer = PrecompiledQueries.format_response(
+                    precompiled["response_template"], 
+                    sql_result
+                )
+                
+                execution_time = time.time() - start_time
+                
+                response_data = {
+                    "success": True,
+                    "question": request.question,
+                    "answer": formatted_answer,
+                    "execution_time": execution_time,
+                    "cached": False
+                }
+                
+                # Cache the response
+                query_cache.set(request.question, response_data, context)
+                
+                success(f"Pre-compiled query processed in {execution_time:.2f}s")
+                return QuestionResponse(**response_data)
+                
+            except Exception as e:
+                warning(f"Pre-compiled query failed, falling back to agent: {e}")
+        
+        # 3. Build context-aware input for the agent
         contextual_input = request.question
         
-        # Add conversation history if provided
         if request.conversation_history and len(request.conversation_history) > 0:
-            # Limit to last 6 messages (3 exchanges) to avoid token limits
-            recent_history = request.conversation_history[-6:]
+            # Limit to last 4 messages (2 exchanges) to save tokens
+            recent_history = request.conversation_history[-4:]
             
-            context_parts = ["Previous conversation context:"]
+            context_parts = ["Previous context:"]
             for msg in recent_history:
                 role_name = "User" if msg.role == "user" else "Assistant"
                 context_parts.append(f"{role_name}: {msg.content}")
@@ -203,20 +263,47 @@ async def ask_question(request: QuestionRequest):
             
             info(f"Added conversation context ({len(recent_history)} messages)")
         
-        # Process the question with context
-        response = agent.invoke({"input": contextual_input}, handle_parsing_errors=True)
+        # 4. Process with LangChain agent
+        info("Processing with LangChain agent...")
+        agent_response = agent.invoke({"input": contextual_input}, handle_parsing_errors=True)
         
         execution_time = time.time() - start_time
-        answer = response.get("output", "No answer provided")
+        answer = agent_response.get("output", "No answer provided")
+        
+        # 5. Validate the response
+        validation_warnings = []
+        try:
+            # Basic validation for common data types
+            if "population" in request.question.lower():
+                # Try to extract numbers for validation
+                import re
+                numbers = re.findall(r'\d{1,3}(?:,\d{3})*', answer)
+                if numbers:
+                    for num_str in numbers:
+                        num = int(num_str.replace(',', ''))
+                        validation = result_validator.validate_population_data([[None, num]], geo_level=2)
+                        validation_warnings.extend(validation.get("warnings", []))
+                        if not validation["is_valid"]:
+                            warning(f"Population validation failed: {validation['errors']}")
+            
+        except Exception as validation_error:
+            warning(f"Validation error: {validation_error}")
+        
+        # 6. Prepare response
+        response_data = {
+            "success": True,
+            "question": request.question,
+            "answer": answer,
+            "execution_time": execution_time,
+            "cached": False,
+            "validation_warnings": validation_warnings if validation_warnings else None
+        }
+        
+        # 7. Cache the response
+        query_cache.set(request.question, response_data, context)
         
         success(f"Question processed in {execution_time:.2f}s")
-        
-        return QuestionResponse(
-            success=True,
-            question=request.question,
-            answer=answer,
-            execution_time=execution_time
-        )
+        return QuestionResponse(**response_data)
         
     except Exception as e:
         error(f"Error processing question: {e}")
@@ -224,7 +311,8 @@ async def ask_question(request: QuestionRequest):
             success=False,
             question=request.question,
             answer="",
-            error=str(e)
+            error=str(e),
+            execution_time=time.time() - start_time
         )
 
 # Additional endpoints for frontend
@@ -243,13 +331,37 @@ async def get_examples():
     """Get example questions for the frontend"""
     return {
         "examples": [
-            "¿Cuál es el barrio con más población en Barcelona?",
-            "What is the neighborhood with the greatest number of people in Barcelona?",
-            "¿Cuántos colegios hay en el distrito de Eixample?",
-            "¿Cuál es la densidad de población promedio por distrito?",
-            "Show me the districts with the highest population density",
+            "¿Cuál es la población de Barcelona?",
+            "¿Cuántos distritos tiene Barcelona?",
+            "¿Cuál es la población de Eixample?",
+            "¿Cuántas escuelas hay en Gràcia?",
+            "Compara la población de Sarrià-Sant Gervasi y Nou Barris",
+            "What is the population density of Barcelona?",
+            "Show me the districts with the highest population",
         ]
     }
+
+@app.get("/cache/stats")
+async def get_cache_stats():
+    """Get cache statistics for performance monitoring"""
+    try:
+        stats = query_cache.get_stats()
+        return {
+            "cache_stats": stats,
+            "precompiled_queries": len(PrecompiledQueries.COMMON_QUERIES),
+            "cache_hit_rate": f"{(stats['valid_entries'] / max(stats['total_entries'], 1)) * 100:.1f}%"
+        }
+    except Exception as e:
+        return {"error": f"Failed to get cache stats: {str(e)}"}
+
+@app.post("/cache/clear")
+async def clear_cache():
+    """Clear the query cache (admin function)"""
+    try:
+        query_cache.clear()
+        return {"message": "Cache cleared successfully"}
+    except Exception as e:
+        return {"error": f"Failed to clear cache: {str(e)}"}
 
 if __name__ == "__main__":
     uvicorn.run(
