@@ -1,0 +1,191 @@
+{
+    "@context": {
+        "c": "http://www.w3.org/2002/12/cal#",
+        "dcterms": "http://purl.org/dc/terms/",
+        "geo": "http://www.w3.org/2003/01/geo/wgs84_pos#",
+        "loc": "http://purl.org/ctic/infraestructuras/localizacion#",
+        "org": "http://purl.org/ctic/infraestructuras/organizacion#",
+        "vcard": "http://www.w3.org/2006/vcard/ns#",
+        "schema": "https://schema.org/",
+        "title": "vcard:fn",
+        "id": "dcterms:identifier",
+        "relation": "dcterms:relation",
+        "references": "dcterms:references",
+        "address": "vcard:adr",
+        "area": "loc:barrio",
+        "district": "loc:distrito",
+        "locality": "vcard:locality",
+        "postal-code": "vcard:postal-code",
+        "street-address": "vcard:street-address",
+        "location": "vcard:geo",
+        "latitude": "geo:lat",
+        "longitude": "geo:long",
+        "organization": "vcard:org",
+        "organization-desc": "dcterms:description",
+        "accesibility": "org:accesibilidad",
+        "services": "org:servicios",
+        "schedule": "org:horario",
+        "organization-name": "vcard:organization-name",
+        "description": "c:summary",
+        "link": "c:url",
+        "uid": "c:uid",
+        "dtstart": "c:dtstart",
+        "dtend": "c:dtend",
+        "time": "c:time",
+        "excluded-days": "c:exdate",
+        "event-location": "c:location",
+        "free": "schema:free",
+        "price": "c:resource",
+        "recurrence": "c:rrule",
+        "days": "c:byday",
+        "frequency": "c:freq",
+        "interval": "c:interval",
+        "audience": "dc:audience"
+    },
+    "@graph": [
+        {
+            "@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/6070995-jardines-gregorio-ordonez.json",
+            "@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/ParquesJardines",
+            "id": "6070995",
+            "title": "Jardines Gregorio Ordóñez",
+            "relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=2fba3c8f758ff210VgnVCM2000000c205a0aRCRD",
+            "address": {
+                "district": {
+                    "@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Salamanca"
+                },
+                "area": {
+                    "@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Salamanca/Barrio/Lista"
+                },
+                "locality": "MADRID",
+                "postal-code": "28006",
+                "street-address": "CALLE PRINCIPE DE VERGARA 68"
+            },
+            "location": {
+                "latitude": 40.43346186779773,
+                "longitude": -3.6785954778654113
+            },
+            "organization": {
+                "organization-desc": "Los jardines en memoria de Gregorio Ordóñez cuentan con dos amplias áreas de juegos infantiles, diseñadas para el disfrute de los más pequeños. En su centro, se encuentra un encantador estanque rodeado de diversas especies de palmeras, que aportan un toque exótico y natural al entorno. Conservación:  Dirección General de Gestión del Agua y Zonas Verdes, Área de Gobierno de Medio Ambiente y Movilidad.    Superficie: 3.975 m&amp;sup2;.    Vegetación predominante:      Ejemplares arbóreos: ciruelo rojo (Prunus cerasifera), plátano de sombra (Platanus &amp;times; hispanica), liquidámbar (Liquidambar styraciflua) y cinamomo (Melia azedarach).    Arbustos: palmito (Chamaerops humilis) y palmito de la China (Trachycarpus fortunei).   Macizos arbustivos: rosas (Rosa spp.) y madroño (Arbutus unedo). Metro: Núñez de Balboa (líneas 5 y 9) Bus: 1, 29, 52, 74  Servicio Bicimad, para consultar la estación más cercana, acceda al mapa de geolocalización de las estaciones.",
+                "accesibility": "2",
+                "schedule": "",
+                "services": "Zonas infantiles",
+                "organization-name": "Jardines Gregorio Ordóñez"
+            }
+        },
+        {
+            "@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/6010361-jardines-san-francisco-grande.json",
+            "@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/ParquesJardines/ColeccionesBotanicas",
+            "id": "6010361",
+            "title": "Jardines San Francisco el Grande",
+            "relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=ffe7a3575e2ee210VgnVCM2000000c205a0aRCRD",
+            "address": {
+                "district": {
+                    "@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Centro"
+                },
+                "area": {
+                    "@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Centro/Barrio/Palacio"
+                },
+                "locality": "MADRID",
+                "postal-code": "28005",
+                "street-address": "AVENIDA GRAN VIA DE SAN FRANCISCO 25"
+            },
+            "location": {
+                "latitude": 40.41002249621306,
+                "longitude": -3.7144199127869557
+            },
+            "organization": {
+                "organization-desc": "Los jardines de San Francisco el Grande están situados en el lugar donde se encontraba el antiguo convento de San Francisco, cuyas ruinas fueron demolidas en 1961. El Parque de la Cornisa se sitúa a los pies de la Basílica de San Francisco el Grande, en lo que fue el patio del antiguo convento. En 2007, el Ayuntamiento de Madrid transformó los jardines de San Francisco en un jardín temático dedicado a las dalias, conocido como la antigua Dalieda de San Francisco. Posteriormente, en 2016, se modificó la composición de las plantaciones, optando por una colección de rosales debido a su notable capacidad de adaptación al clima madrileño y su abundante floración. En la actualidad, los Jardines de San Francisco el Grande albergan 21 variedades de rosales, que alcanzan su máximo esplendor durante los meses de mayo y junio. El parque cuenta con uno de los miradores más transitados para ver puestas de sol en la ciudad. Antecede al mirador el grupo escultórico San Isidro Labrador, esta fue una de las esculturas que realizó Santiago Costa en 1952 para homenajear al arquitecto Juan de Villanueva. El parque de la Cornisa se desarrolla en pendiente descendente desde la Gran Vía de San Francisco hasta la Ronda de Segovia, y accediéndose al mismo por la Calle del Rosario. Dispone de zonas deportivas e infantiles con estancias y pequeños caminos de terrizo. El arbolado está formado por magnolios, ciruelos rojos, acacias de Constantinopla, plátanos de sombra, arces negundos, arces del azúcar, moreras, almeces, madroños, palmeras de Fortune, arizónicas, álamos, además de distintos macizos de arbustos con abelias, rosales y juníperos entre otros. Existen también algunas zonas con césped. Destaca, paralela a la calle del Rosario una preciosa alineación de liquidambar con algún madroño intercalado. Se han realizado mejoras en 2016 y en 2022. Conservación: Dirección General de Gestión del Agua y Zonas Verdes, Área de Gobierno de Medio Ambiente y Movilidad.  Superficie: 4.346 m&amp;sup2;.  Vegetación predominantes:    Árboles: liquidámbar (Liquidambar styraciflua), magnolio (Magnolia spp.), cerezo silvestre (Prunus avium), entre otros.  Macizos arbustivos: escalonias (Escallonia spp.), juníperos (Juniperus spp.), forsitias (Forsythia spp.) y cotoneaster horizontal (Cotoneaster horizontalis). Bus: 3, 60 y 148.  Servicio Bicimad, para consultar la estación más cercana, acceda al mapa de geolocalización de las estaciones.",
+                "accesibility": "2",
+                "schedule": "",
+                "services": "",
+                "organization-name": "Jardines San Francisco el Grande"
+            }
+        },
+        {
+            "@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/5964519-jardines-andres-saborit.json",
+            "@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/ParquesJardines",
+            "id": "5964519",
+            "title": "Jardines de Andrés Saborit",
+            "relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=a1c51eadb333e210VgnVCM2000000c205a0aRCRD",
+            "address": {
+                "district": {
+                    "@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Chamberi"
+                },
+                "area": {
+                    "@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Chamberi/Barrio/RiosRosas"
+                },
+                "locality": "MADRID",
+                "postal-code": "28003",
+                "street-address": "CALLE RAIMUNDO FERNANDEZ VILLAVERDE 32"
+            },
+            "location": {
+                "latitude": 40.44613326792272,
+                "longitude": -3.6989699295578347
+            },
+            "organization": {
+                "organization-desc": "Los Jardines de Andrés Saborit se encuentran en la calle Raimundo Fernández Villaverde, entre las calles Alenza y Alonso Cano. Esta amplia zona verde cuenta con áreas infantiles, equipamientos de entrenamiento para mayores y zonas estanciales. Está rodeada de césped, árboles que brindan sombra, y pequeños grupos de macizos arbustivos. Hasta abril de 2018, estos jardines eran conocidos como Jardines de Raimundo Fernández Villaverde. Con el cambio de denominación, se instaló una placa en homenaje a Andrés Saborit, concejal socialista en el Ayuntamiento de Madrid durante la II República. Saborit fue el artífice de importantes logros sociales, como la apertura de la Casa de Campo, la ampliación del Metro, la municipalización de servicios y la construcción de alrededor de 200 escuelas infantiles. Conservación: Dirección General de Gestión del Agua y Zonas Verdes, Área de Gobierno de Medio Ambiente y Movilidad.  Superficie: 8.491 m&amp;sup2;.  Vegetación predominante:   Ejemplares arbóreos: plátano de sombra (Platanus x hispanica), aligustre del Japón (Ligustrum japonicum), ciruelo rojo (Prunus cerasifera) y castaño de Indias (Aesculus hippocastanum).   Arbustos: evónimo (Euonymus spp.), pitosporo (Pittosporum spp.) y cotoneaster horizontal (Cotoneaster horizontalis).  Macizos arbustivos: junípero horizontal (Juniperus horizontalis), palmito (Chamaerops humilis) y rosa canina (Rosa canina). Metro: Nuevos Ministerios (líneas 6, 8 y 10) Bus: 5, 68, 149, C1, C2 RENFE: Nuevos Ministerios  Servicio Bicimad, para consultar la estación más cercana, acceda al mapa de geolocalización de las estaciones.",
+                "accesibility": "2",
+                "schedule": "",
+                "services": "Zonas infantiles Zonas adulto mayor Circuito Biosaludable",
+                "organization-name": "Jardines de Andrés Saborit"
+            }
+        },
+        {
+            "@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/5896013-jardines-buen-retiro.json",
+            "@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/ParquesJardines/ParquesHistoricos",
+            "id": "5896013",
+            "title": "Jardines de El Buen Retiro",
+            "relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=499561945d9ec210VgnVCM2000000c205a0aRCRD",
+            "address": {
+                "district": {
+                    "@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Retiro"
+                },
+                "area": {
+                    "@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Retiro/Barrio/LosJeronimos"
+                },
+                "locality": "MADRID",
+                "postal-code": "28001",
+                "street-address": "PLAZA INDEPENDENCIA 7"
+            },
+            "location": {
+                "latitude": 40.41964087412762,
+                "longitude": -3.68793370943788
+            },
+            "organization": {
+                "organization-desc": "El Parque del Buen Retiro, conocido simplemente como El Retiro, es uno de los lugares más emblemáticos de Madrid y un oasis verde en el corazón de la ciudad. Con una extensión de 125 hectáreas, este parque histórico ha sido durante siglos un punto de encuentro para madrileños y visitantes. Creado en el siglo XVII como un espacio de recreo para la realeza española, El Retiro ofrece una impresionante mezcla de jardines paisajísticos, fuentes, estanques y monumentos históricos. Con sus amplias avenidas y rincones tranquilos, es un espacio perfecto tanto para actividades recreativas como para pasear y relajarse.   Historia del Parque:  El Parque del Buen Retiro fue construido en 1630 por orden del Conde-Duque de Olivares, como parte del Real Sitio del Buen Retiro, un palacio y jardines destinados al ocio de Felipe IV. Originalmente fue un jardín privado de la corte española, pero con el tiempo, y tras la destrucción del palacio en el siglo XIX, fue abierto al público y pasó a ser gestionado por el Ayuntamiento de Madrid.  Principales Atractivos   Estanque Grande: El Retiro alberga un estanque monumental donde se pueden alquilar barcas de remo. Alrededor del estanque se encuentra el majestuoso Monumento a Alfonso XII, con su imponente columnata y esculturas que ofrecen vistas espectaculares del parque.  Palacio de Cristal: Uno de los edificios más impresionantes del parque es este pabellón de hierro y vidrio, construido en 1887 para albergar una exposición de plantas exóticas. Actualmente, se utiliza como espacio de exhibiciones temporales de arte contemporáneo.  Paseo de las Estatuas: A lo largo de este paseo, conocido también como Paseo de la Argentina, se encuentran las estatuas de los reyes de España, que originalmente estaban destinadas a decorar el Palacio Real.  Jardines y Espacios Naturales  El parque cuenta con una gran variedad de jardines que enriquecen la experiencia de los visitantes:  La Rosaleda: Un hermoso jardín de rosas, inspirado en otros famosos rosedales europeos, como el de Bagatelle en París.  Jardines de Cecilio Rodríguez: Este espacio cerrado y más íntimo está decorado con fuentes, setos geométricos y pabellones, y alberga una colección de pavos reales.  Bosque del Recuerdo: Un espacio conmemorativo en honor a las víctimas de los atentados del 11 de marzo de 2004 en Madrid, donde se plantaron 192 árboles, uno por cada víctima.  Actividades y Eventos  El Retiro es un punto neurálgico para actividades culturales y recreativas. Cada año se celebran la Feria del Libro y otros eventos culturales al aire libre. Este parque cuenta también con amplias zonas para correr, andar en bicicleta y practicar yoga, es un lugar ideal para los entusiastas del deporte. Este parque se incluye entre las visitas recomendadas a turistas que visitan la ciudad, según la web oficial de turismo de Madrid.  Otras denominaciones: Parque del Retiro. El Retiro Conservación: Dirección General de Gestión del Agua y Zonas Verdes. Área de Gobierno de Medio Ambiente y Movilidad   Superficie: 1.177.300 m2     Zona verde del Retiro: 113, 76 hectáreas Viveros Estufas del Retiro: 3,23 hectáreas Talleres Estufas del Retiro: 0,74 hectáreas     Vegetación predominante   Ejemplares arbóreos: plátano de sombra (Platanus hispanica), pino piñonero (Pinus pinea)   Arbustos: madroño (Arbutus unedo), lauro (Prunus laurocerasus), durillo (Viburnum tinus)   Macizos arbustivos: rosal (Rosa spp.), abelia (Abelia x grandiflora), enebro (Juniperus communis) Metro: Retiro (línea 2), Príncipe de Vergara (líneas 2 y 9), Ibiza (línea 9), Atocha (línea 1), Atocha. Renfe (línea 1) Autobuses: 1, 2, 9, 14, 15, 19, 20, 26, 28, 32, 51, 52, 61, 63, 74, 146, 152, 202, C  Servicio Bicimad, para consultar la estación más cercana, acceda al mapa de geolocalización de las estaciones.",
+                "accesibility": "2",
+                "schedule": "Horario del parque    Primavera y verano (de abril a septiembre): desde las 6 hasta las 24 h.  Otoño e invierno (de octubre a marzo): desde las 6 hasta las 22 h.    Horario de las áreas caninas    Desde las 7:00 h hasta el cierre del parque.  Para labores puntuales de mantenimiento o reparaciones, se cerrará parcialmente el área, permitiendo el paso por una de las dos puertas a la zona que quede libre de la actuación.Se instalarán carteles para informar de estos periodos de cierre parcial del espacio con 24 h de antelación a su comienzo.",
+                "services": "Zonas infantiles:  Zona del Pinar (Puerta del Ángel Caído) Campanillas Bajas (Puerta de España) Povar (Puerta de la Independencia) Hernani (Puerta de la Independencia) Plaza de Galicia (Puerta de Madrid) Plaza Sevilla (Puerta de América Española) Florida Park (Puerta de Reina Mercedes) Antigua Junta de Distrito (Puerta de Sainz  Baranda) Jardines de Herrero Palacios Campo Grande La Cabaña (Puerta de Mariano de Cavia) Paseo Coches, a la altura del Instituto Meteorológico  Zonas de mayores:  Paseo Coches, a la altura de Puerta de América Española Paseo Coches, a la altura del Instituto Meteorológico  Zonas caninas:  Entrada por Puerta de Mariano de Cavia  Instalaciones deportivas:  El Pinar (Puerta del Ángel Caído) Huerto Francés (Puerta del Ángel Caído)  Puntos de información ambiental:  Acceso por  C/ O&amp;acute;Donnell, 1. Acceso por la Puerta del Niño Jesús.  C/ Alfonso XII, junto a instalaciones deportivas.  Otros:  P: Viveros de Estufas - Plaza del Ángel Caído Q: Teatro de Títeres, entrada por Plaza de la Independencia R: Embarcadero, entrada por Plaza de la Independencia S: Casita de la Cabaña, entrada por Puerta de Mariano de Cavia",
+                "organization-name": "Jardines de El Buen Retiro"
+            }
+        },
+        {
+            "@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/10984428-jardines-gloria-fuertes.json",
+            "id": "10984428",
+            "title": "Jardines de Gloria Fuertes",
+            "relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=f4749c2d91fcb610VgnVCM1000001d4a900aRCRD",
+            "address": {
+                "district": {
+                    "@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Chamartin"
+                },
+                "area": {
+                    "@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Chamartin/Barrio/NuevaEspana"
+                },
+                "locality": "MADRID",
+                "postal-code": "28016",
+                "street-address": "CALLE MADRE DE DIOS 2"
+            },
+            "location": {
+                "latitude": 40.461517637696026,
+                "longitude": -3.6751179007317614
+            },
+            "organization": {
+                "organization-desc": "Este jardín rinde homenaje a la célebre poetisa y escritora de cuentos infantiles Gloria Fuertes, quien fue vecina de este barrio. El parque ofrece una combinación equilibrada de zonas verdes y espacios recreativos, con áreas de sol y sombra, delimitadas por franjas de césped cuidadosamente dispuestas. En ellas crecen majestuosos pinos, cedros y plátanos, que enmarcan una zona de juegos infantiles. Además, el parque cuenta con diversas instalaciones recreativas, como mesas de ping-pong y un ajedrez gigante, que invitan al disfrute en familia. Para quienes buscan relajarse, se han dispuesto varios bancos, proporcionando un ambiente ideal para descansar y desconectar en plena naturaleza. Conservación: Dirección General de Gestión del Agua y Zonas Verdes, Área de Gobierno de Medio Ambiente y Movilidad.  Superficie: 1.663 m&amp;sup2;.  Vegetación predominante:    Ejemplares arbóreos: falso plátano (Acer pseudoplatanus), ciprés común (Cupressus sempervirens), laurel (Laurus nobilis), pino piñonero (Pinus pinea) y tuya oriental (Platycladus orientalis).  Arbustos: especies diversas no especificadas.  Macizos arbustivos: presencia de especies en macizos. Metro: línea 9 (Colombia) Bus: 16,29,150  Servicio Bicimad, para consultar la estación más cercana, acceda al mapa de geolocalización de las estaciones.",
+                "accesibility": "2",
+                "schedule": "",
+                "services": "Zona infantil",
+                "organization-name": "Jardines de Gloria Fuertes"
+            }
+        }
+    ]
+}

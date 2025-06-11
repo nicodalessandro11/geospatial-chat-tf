@@ -1,0 +1,119 @@
+{
+    "barcelona": {
+        "districts": {
+            "raw_file": "https://xwzmngtodqmipubwnceh.supabase.co/storage/v1/object/public/data/barcelona/bcn-districts.json",
+            "resource_id": "5f8974a7-7937-4b50-acbc-89204d570df9",
+            "processed_file": "insert_ready_districts_bcn.json"
+        },
+        "neighbourhoods": {
+            "raw_file": "https://xwzmngtodqmipubwnceh.supabase.co/storage/v1/object/public/data/barcelona/bcn-neighbourhoods.json",
+            "resource_id": "75197dfe-0306-4c5e-9643-34948af07fb6",
+            "processed_file": "insert_ready_neighbourhoods_bcn.json"
+        },
+        "point_features": {
+            "raw_file": "https://xwzmngtodqmipubwnceh.supabase.co/storage/v1/object/public/data/barcelona/point_features/opendatabcn_llista-equipaments_cultura-csv.csv",
+            "resource_id": "f3721b17-bf9e-4bdd-853c-cb6200e1b442",
+            "processed_file": "insert_ready_point_features_bcn.json"
+        },
+        "indicators": {
+            "raw_file": {
+                "average_gross_taxable_income": {
+                    "2019": {
+                        "raw_file": "https://xwzmngtodqmipubwnceh.supabase.co/storage/v1/object/public/data/barcelona/indicators/average_gross_taxable_income/2019_atles_renda_bruta_persona.csv",
+                        "resource_id": "6360f408-e786-49ed-be7f-76c50426f50a"
+                    },
+                    "2020": {
+                        "raw_file": "https://xwzmngtodqmipubwnceh.supabase.co/storage/v1/object/public/data/barcelona/indicators/average_gross_taxable_income/2020_atles_renda_bruta_persona.csv",
+                        "resource_id": "e6b601e9-b0d3-422d-91db-2cdb442ec775"
+                    },
+                    "2021": {
+                        "raw_file": "https://xwzmngtodqmipubwnceh.supabase.co/storage/v1/object/public/data/barcelona/indicators/average_gross_taxable_income/2021_atles_renda_bruta_persona.csv",
+                        "resource_id": "062adf14-aa31-4eb8-bded-81115dddd633"
+                    },
+                    "2022": {
+                        "raw_file": "https://xwzmngtodqmipubwnceh.supabase.co/storage/v1/object/public/data/barcelona/indicators/average_gross_taxable_income/2022_atles_renda_bruta_persona.csv",
+                        "resource_id": "86e8c793-8fa8-488a-b673-105e64dff7e8"
+                    }
+                },
+                "income_disposable": {
+                    "2019": {
+                        "raw_file": "https://xwzmngtodqmipubwnceh.supabase.co/storage/v1/object/public/data/barcelona/indicators/income_disposable/2019_renda_disponible_llars_per_persona.csv",
+                        "resource_id": "0e205580-6d55-4599-bd13-086de83130b8"
+                    },
+                    "2020": {
+                        "raw_file": "https://xwzmngtodqmipubwnceh.supabase.co/storage/v1/object/public/data/barcelona/indicators/income_disposable/2020_renda_disponible_llars_per_persona.csv",
+                        "resource_id": "afe5b67d-7948-4e79-a88c-d51e55fe3ac6"
+                    },
+                    "2021": {
+                        "raw_file": "https://xwzmngtodqmipubwnceh.supabase.co/storage/v1/object/public/data/barcelona/indicators/income_disposable/2021_renda_disponible_llars_per_persona.csv",
+                        "resource_id": "e14509ca-9cba-43ec-b925-3beb5c69c2c7"
+                    }
+                },
+                "population": {
+                    "2019": {
+                        "raw_file": "https://xwzmngtodqmipubwnceh.supabase.co/storage/v1/object/public/data/barcelona/indicators/population/2019_pad_mdbas.csv",
+                        "resource_id": "d1260b9e-5009-4afc-85f2-79baf4c0d91b"
+                    },
+                    "2020": {
+                        "raw_file": "https://xwzmngtodqmipubwnceh.supabase.co/storage/v1/object/public/data/barcelona/indicators/population/2020_pad_mdbas.csv",
+                        "resource_id": "76907f41-31fb-4afc-b5df-ae0d06d99a37"
+                    },
+                    "2021": {
+                        "raw_file": "https://xwzmngtodqmipubwnceh.supabase.co/storage/v1/object/public/data/barcelona/indicators/population/2021_pad_mdbas.csv",
+                        "resource_id": "8b1f1cb6-14d1-4227-b03f-111bb721f82c"
+                    },
+                    "2022": {
+                        "raw_file": "https://xwzmngtodqmipubwnceh.supabase.co/storage/v1/object/public/data/barcelona/indicators/population/2022_pad_mdbas.csv",
+                        "resource_id": "78b965d3-b2dc-4f23-91b9-59caa45bc334"
+                    },
+                    "2023": {
+                        "raw_file": "https://xwzmngtodqmipubwnceh.supabase.co/storage/v1/object/public/data/barcelona/indicators/population/2023_pad_mdbas.csv",
+                        "resource_id": "f70020ae-c41a-438d-8983-a372628c197b"
+                    }
+                },
+                "surface": {
+                    "2019": {
+                        "raw_file": "https://xwzmngtodqmipubwnceh.supabase.co/storage/v1/object/public/data/barcelona/indicators/surface/2019_superficie.csv",
+                        "resource_id": "9cd3d989-03c2-4e39-b3a7-eec0eac53e9f"
+                    },
+                    "2020": {
+                        "raw_file": "https://xwzmngtodqmipubwnceh.supabase.co/storage/v1/object/public/data/barcelona/indicators/surface/2020_superficie.csv",
+                        "resource_id": "b39f1bbd-faca-4411-a222-234a09e6d1d9"
+                    },
+                    "2021": {
+                        "raw_file": "https://xwzmngtodqmipubwnceh.supabase.co/storage/v1/object/public/data/barcelona/indicators/surface/2021_superficie.csv",
+                        "resource_id": "bb402991-6226-4b33-a901-7d23843ec9e1"
+                    }
+                }
+            },
+            "processed_file": "insert_ready_indicators_bcn.json"
+        }
+    },
+    "madrid": {
+        "districts": {
+            "raw_file": "https://xwzmngtodqmipubwnceh.supabase.co/storage/v1/object/public/data/madrid/madrid-districts.json",
+            "processed_file": "insert_ready_districts_madrid.json"
+        },
+        "neighbourhoods": {
+            "raw_file": "https://xwzmngtodqmipubwnceh.supabase.co/storage/v1/object/public/data/madrid/madrid-neighbourhoods.json",
+            "processed_file": "insert_ready_neighbourhoods_madrid.json"
+        },
+        "point_features": {
+            "raw_file": {
+                "parques_y_jardines": "https://datos.madrid.es/egob/get/catalogo/get /catalogo/200761-0-parques-jardines.json",
+                "museos": "https://datos.madrid.es/egob/get/catalogo/201132-0-museos.json",
+                "bibliotecas": "https://datos.madrid.es/egob/catalogo/201747-0-bibliobuses-bibliotecas.json",
+                "centros_educativos": "https://datos.madrid.es/egob/get/catalogo/300614-0-centros-educativos.json",
+                "salud": "https://datos.madrid.es/egob/get/catalogo/get /catalogo/212769-0-atencion-medica.json"
+            },
+            "processed_file": "insert_ready_point_features_madrid.json"
+        },
+        "indicators": {
+            "raw_file": {
+                "population": "https://xwzmngtodqmipubwnceh.supabase.co/storage/v1/object/public/data/madrid/indicators/population.csv",
+                "surface": "https://xwzmngtodqmipubwnceh.supabase.co/storage/v1/object/public/data/madrid/indicators/surface.csv"
+            },
+            "processed_file": "insert_ready_indicators_madrid.json"
+        }
+    }
+}

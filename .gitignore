@@ -1,0 +1,116 @@
+# /.gitignore
+
+# 🐍 PYTHON
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.pkl
+*.egg-info/
+.eggs/
+venv/
+env/
+ENV/
+pip-wheel-metadata/
+*.log
+
+# 🧪 Python testing
+.cache/
+.coverage
+.pytest_cache/
+htmlcov/
+.tox/
+
+# 🧪 PyCharm / IDEs
+.idea/
+.vscode/
+
+# ⚛️ NODE / FRONTEND
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-lock.yaml
+dist/
+build/
+.next/
+out/
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+/.next/
+/out/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+*.tsbuildinfo
+next-env.d.ts
+
+# 🌱 ENVIRONMENT FILES
+.env
+.env.*
+!.env.example
+!.env.local.example
+
+# 📦 PACKAGING
+*.tar.gz
+*.whl
+*.egg
+*.manifest
+
+# 🐳 DOCKER
+*.pid
+docker-compose.override.yml
+.dockerignore
+Dockerfile.*.bak
+
+# 🪣 SUPABASE
+.supabase/
+supabase/.temp/
+supabase/.output/
+.supabase/config.toml
+.supabase/docker/
+.supabase/dev/
+
+# 📦 VERCEL
+.vercel
+
+# 🧪 JUPYTER / IPYNB
+.ipynb_checkpoints/
+
+# 🗑️ SYSTEM FILES
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*.bak
+*.tmp
+
+# 🧪 TEMP FILES
+logs/
+tmp/
+*.tmp
+*.log
+*.bak
+
+# 💻 CODESPACES / DEV CONTAINER
+.devcontainer/*
+
+# 📜 DOCUMENTATION ARTIFACTS
+*.pdf
+*.png
+*.drawio
+
+# 🧱 MONOREPO TOOLS
+.idea/
+__pycache__/
+*.iml
+
+# 🔧 GLOBAL SETTINGS / FILES TO KEEP EXAMPLE VERSIONS OF
+shared/**/.env
+**/.env.local
+**/.env.*.local
+!.env.example

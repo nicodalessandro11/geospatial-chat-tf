@@ -1,0 +1,51 @@
+{
+    "help": "https://opendata-ajuntament.barcelona.cat/data/api/3/action/help_show?name=datastore_search_sql",
+    "success": true,
+    "result": {
+        "records": [
+            {
+                "addresses_roadtype_name": "",
+                "addresses_end_street_number": null,
+                "institution_name": "",
+                "geo_epgs_4326_lon": "2.1734821454983106",
+                "values_attribute_name": "Tel.",
+                "estimated_dates": "",
+                "addresses_road_name": "C Mascaró",
+                "values_category": "Telèfons",
+                "addresses_zip_code": "8032",
+                "secondary_filters_id": "55734068",
+                "values_value": "661228985",
+                "addresses_town": "BARCELONA",
+                "secondary_filters_name": "Bars i pubs musicals",
+                "secondary_filters_tree": "651",
+                "start_date": "",
+                "addresses_district_name": "Horta-Guinardó",
+                "end_date": "",
+                "geo_epgs_25831_x": "430934.1374840401",
+                "addresses_start_street_number": "58",
+                "register_id": "﻿99400628364",
+                "institution_id": null,
+                "addresses_main_address": "True",
+                "addresses_district_id": "7",
+                "addresses_roadtype_id": "",
+                "addresses_type": "",
+                "addresses_neighborhood_id": "35",
+                "values_id": "233106",
+                "name": "Bar Musical Brujas",
+                "addresses_road_id": "202504",
+                "created": "2019-05-21T11:30:39",
+                "geo_epgs_25831_y": "4585999.235777524",
+                "_full_text": "'+02':19,58 '-05':14,53 '-21':15,54 '00':20,59 '2.1734821454983106':2 '20001':51 '2019':13,52 '202504':64 '233106':62 '30':17,56 '35':7 '39':18 '41.42258418527982':11 '430934.1374840401':10 '4585999.235777524':50 '55734068':12 '58':57,61 '651':26 '65103002003000':32 '661228985':1 '7':31 '8032':6 '99400628364':63 'bar':22,28,46 'barcelona':35 'bcn':37 'bruja':30 'c':8 'cope':45 'cultura':38 'de':42 'el':33 'espai':41 'guinardó':5,34 'horta':4 'horta-guinardó':3 'lleur':40 'mascaró':9 'music':25,29,49 'música':43 'planol':36 'pub':24,48 't11':16,55 'tel':60 'telèfon':21 'true':27",
+                "modified": "2019-05-21T11:30:58",
+                "secondary_filters_asia_id": "65103002003000",
+                "secondary_filters_fullpath": "Planol BCN \u003E\u003E Cultura i lleure \u003E\u003E Espais de música i copes \u003E\u003E Bars i pubs musicals",
+                "geo_epgs_4326_lat": "41.42258418527982",
+                "values_description": "",
+                "_id": 1,
+                "addresses_neighborhood_name": "el Guinardó",
+                "values_outstanding": "True",
+                "values_attribute_id": "20001"
+            }
+        ]
+    }
+}

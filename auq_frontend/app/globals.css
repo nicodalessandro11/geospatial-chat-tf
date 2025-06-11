@@ -1,0 +1,243 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light mode colors */
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    --primary: 207 80% 39%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222 47% 11%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 207 80% 91%;
+    --accent-foreground: 207 80% 39%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 207 80% 39%;
+    --radius: 0.75rem;
+
+    /* Chart colors */
+    --chart-1: 207 80% 39%;
+    /* primary blue */
+    --chart-2: 262 83% 58%;
+    /* purple */
+    --chart-3: 31 95% 56%;
+    /* orange */
+    --chart-4: 174 86% 45%;
+    /* teal */
+    --chart-5: 43 96% 56%;
+    /* yellow */
+
+    /* Typography */
+    --font-size-h1: 32px;
+    --font-size-h2: 24px;
+    --font-size-h3: 20px;
+    --font-size-body: 16px;
+    --font-size-caption: 14px;
+
+    /* Spacing */
+    --space-xs: 4px;
+    --space-s: 8px;
+    --space-m: 16px;
+    --space-l: 24px;
+    --space-xl: 32px;
+    --space-xxl: 64px;
+
+    /* Border radius */
+    --border-radius: 12px;
+  }
+
+  .dark {
+    /* Dark mode colors - enhanced for better contrast */
+    --background: 222 47% 3%;
+    --foreground: 210 40% 98%;
+    --card: 222 47% 6%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 47% 6%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 207 80% 45%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 75.1%;
+    --accent: 207 80% 20%;
+    --accent-foreground: 207 80% 90%;
+    --destructive: 0 62.8% 40.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 25.5%;
+    --input: 217.2 32.6% 25.5%;
+    --ring: 207 80% 45%;
+
+    /* Dark mode chart colors - slightly adjusted for better visibility */
+    --chart-1: 207 80% 45%;
+    --chart-2: 262 83% 65%;
+    --chart-3: 31 95% 65%;
+    --chart-4: 174 86% 55%;
+    --chart-5: 43 96% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-manrope;
+    letter-spacing: -0.01em;
+  }
+
+  h1 {
+    font-size: var(--font-size-h1);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  h2 {
+    font-size: var(--font-size-h2);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  h3 {
+    font-size: var(--font-size-h3);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+}
+
+/* Map container styles */
+.map-container {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+/* Custom utility classes */
+.caption {
+  @apply text-sm text-muted-foreground;
+}
+
+.section-title {
+  @apply text-lg font-semibold text-primary mb-4;
+}
+
+.card-highlight {
+  @apply border-primary shadow-md;
+}
+
+.data-value {
+  @apply text-2xl font-bold;
+}
+
+.data-label {
+  @apply text-sm text-muted-foreground;
+}
+
+/* Modern layout */
+.modern-layout {
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  height: calc(100vh - 8rem);
+}
+
+.modern-sidebar {
+  @apply bg-background border-r overflow-hidden flex flex-col;
+}
+
+.modern-map-container {
+  @apply overflow-hidden;
+}
+
+.modern-header {
+  @apply bg-primary text-primary-foreground shadow-md;
+}
+
+.modern-button {
+  @apply bg-primary text-primary-foreground font-medium py-2.5 px-4 rounded-lg hover:bg-primary/90 transition-colors;
+}
+
+.modern-input {
+  @apply bg-background border border-input rounded-lg p-2.5 w-full;
+}
+
+.modern-card {
+  @apply bg-card rounded-xl border border-border shadow-sm p-4;
+}
+
+.modern-tabs {
+  @apply bg-muted rounded-lg p-1;
+}
+
+.modern-tab {
+  @apply rounded-md px-3 py-1.5 text-sm font-medium;
+}
+
+.modern-tab-active {
+  @apply bg-background text-foreground shadow-sm;
+}
+
+.modern-tab-inactive {
+  @apply text-muted-foreground hover:text-foreground;
+}
+
+.glass-effect {
+  @apply bg-background/80 backdrop-blur-md border border-border/50;
+}
+
+/* Leaflet popup overlay modern glass effect */
+.leaflet-popup-content-wrapper {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(8px);
+  border-radius: 1rem !important;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(120, 120, 120, 0.12);
+  padding: 0 !important;
+}
+
+.leaflet-popup-tip {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(8px);
+}
+
+.dark .leaflet-popup-content-wrapper {
+  background: rgba(30, 41, 59, 0.55);
+  backdrop-filter: blur(8px);
+  border-radius: 1rem !important;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(120, 120, 120, 0.18);
+}
+
+.dark .leaflet-popup-tip {
+  background: rgba(30, 41, 59, 0.55);
+  backdrop-filter: blur(8px);
+}
+
+.leaflet-popup-close-button {
+  color: #333 !important;
+  font-size: 1.5rem !important;
+  opacity: 0.85;
+  right: 12px !important;
+  top: 8px !important;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  transition: opacity 0.2s;
+}
+
+.dark .leaflet-popup-close-button {
+  color: #fff !important;
+}
+
+.leaflet-popup-close-button:hover {
+  opacity: 1;
+}

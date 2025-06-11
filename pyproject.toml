@@ -1,0 +1,28 @@
+[project]
+name = "areuqueryous"
+version = "0.1.0"
+description = "ETL tools and geospatial data ingestion for the Are-u-Queryous project"
+readme = "README.md"
+authors = [
+  { name = "Nico D'Alessandro Calderon" }
+]
+license = "MIT"
+requires-python = ">=3.11"
+
+dependencies = [
+  "requests",
+  "shapely",
+  "geopandas",
+  "pandas",
+  "python-dotenv",
+  "supabase",
+  "pytest"
+]
+
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["auq_data_engine*"] 

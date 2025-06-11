@@ -1,0 +1,25 @@
+[project]
+name = "common_lib"
+version = "0.1.0"
+description = "A lightweight emoji-enhanced logging utility for ETL pipelines and CLI tools."
+readme = "README.md"
+authors = [
+  { name = "Nico", email = "nicodalessandro1l@gmail.com" }
+]
+license = { text = "MIT" }
+requires-python = ">=3.8"
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "Topic :: Utilities",
+  "Programming Language :: Python :: 3.11",
+  "License :: OSI Approved :: MIT License"
+]
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/nicodalessandro1l/uoc-tfg-auq"
+
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"

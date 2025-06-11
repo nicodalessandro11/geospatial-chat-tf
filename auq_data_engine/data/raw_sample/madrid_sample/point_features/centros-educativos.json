@@ -1,0 +1,191 @@
+{
+    "@context": {
+        "c": "http://www.w3.org/2002/12/cal#",
+        "dcterms": "http://purl.org/dc/terms/",
+        "geo": "http://www.w3.org/2003/01/geo/wgs84_pos#",
+        "loc": "http://purl.org/ctic/infraestructuras/localizacion#",
+        "org": "http://purl.org/ctic/infraestructuras/organizacion#",
+        "vcard": "http://www.w3.org/2006/vcard/ns#",
+        "schema": "https://schema.org/",
+        "title": "vcard:fn",
+        "id": "dcterms:identifier",
+        "relation": "dcterms:relation",
+        "references": "dcterms:references",
+        "address": "vcard:adr",
+        "area": "loc:barrio",
+        "district": "loc:distrito",
+        "locality": "vcard:locality",
+        "postal-code": "vcard:postal-code",
+        "street-address": "vcard:street-address",
+        "location": "vcard:geo",
+        "latitude": "geo:lat",
+        "longitude": "geo:long",
+        "organization": "vcard:org",
+        "organization-desc": "dcterms:description",
+        "accesibility": "org:accesibilidad",
+        "services": "org:servicios",
+        "schedule": "org:horario",
+        "organization-name": "vcard:organization-name",
+        "description": "c:summary",
+        "link": "c:url",
+        "uid": "c:uid",
+        "dtstart": "c:dtstart",
+        "dtend": "c:dtend",
+        "time": "c:time",
+        "excluded-days": "c:exdate",
+        "event-location": "c:location",
+        "free": "schema:free",
+        "price": "c:resource",
+        "recurrence": "c:rrule",
+        "days": "c:byday",
+        "frequency": "c:freq",
+        "interval": "c:interval",
+        "audience": "dc:audience"
+    },
+    "@graph": [
+        {
+            "@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/4916066-abc-schule-aleman-.json",
+            "id": "4916066",
+            "title": "ABC Schule (Alemán)",
+            "relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=d167e229b31f9110VgnVCM2000000c205a0aRCRD",
+            "address": {
+                "district": {
+                    "@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Chamartin"
+                },
+                "area": {
+                    "@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Chamartin/Barrio/ElViso"
+                },
+                "locality": "MADRID",
+                "postal-code": "28002",
+                "street-address": "CALLE LEIZARAN 27"
+            },
+            "location": {
+                "latitude": 40.44793196689411,
+                "longitude": -3.6813824984159287
+            },
+            "organization": {
+                "organization-desc": " EDUCACIÓN: Infantil Primer y segundo ciclo  IDIOMA: Alemán BUS: 7, 16, 19, 29, 51, 52 METRO: Cruz del Rayo, Príncipe de Vergara",
+                "accesibility": "0",
+                "schedule": "",
+                "services": "",
+                "organization-name": "ABC Schule (Alemán)"
+            }
+        },
+        {
+            "@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/167390-academia-dario-estudio.json",
+            "@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/ColegiosPrivadosConcertados",
+            "id": "167390",
+            "title": "Academia Darío Estudio",
+            "relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=bfb1ff632081c010VgnVCM1000000b205a0aRCRD",
+            "address": {
+                "district": {
+                    "@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Centro"
+                },
+                "area": {
+                    "@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Centro/Barrio/Palacio"
+                },
+                "locality": "MADRID",
+                "postal-code": "28013",
+                "street-address": "CALLE GRAN VIA 63"
+            },
+            "location": {
+                "latitude": 40.42249057800178,
+                "longitude": -3.7098176178133118
+            },
+            "organization": {
+                "organization-desc": " ENSEÑANZA: BACHILLERATO (Humanidades  y C. Sociales - Ciencias y Tecnología) METRO: Santo Domingo, Plaza España BUS: 1 , 2 , 44 , 46 , 74 , 75 , 133 , 148 , 202",
+                "accesibility": "0",
+                "schedule": "",
+                "services": "",
+                "organization-name": "Academia Darío Estudio"
+            }
+        },
+        {
+            "@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/6803-agencia-estatal-consejo-superior-investigaciones-cientificas-csic-.json",
+            "@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/AdministracionCentral",
+            "id": "6803",
+            "title": "Agencia Estatal Consejo Superior de Investigaciones Científicas (CSIC)",
+            "relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=ec7f42be9971c010VgnVCM1000000b205a0aRCRD",
+            "address": {
+                "district": {
+                    "@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Chamartin"
+                },
+                "area": {
+                    "@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Chamartin/Barrio/ElViso"
+                },
+                "locality": "MADRID",
+                "postal-code": "28006",
+                "street-address": "CALLE SERRANO 117"
+            },
+            "location": {
+                "latitude": 40.44088390288162,
+                "longitude": -3.687025811952775
+            },
+            "organization": {
+                "organization-desc": "  Consulta los enlaces siguientes",
+                "accesibility": "3",
+                "schedule": "",
+                "services": "",
+                "organization-name": "Agencia Estatal Consejo Superior de Investigaciones Científicas (CSIC)"
+            }
+        },
+        {
+            "@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/5373-altair-colegio-internacional.json",
+            "@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/ColegiosPrivadosConcertados",
+            "id": "5373",
+            "title": "Altair, Colegio Internacional",
+            "relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=7d277b503a71c010VgnVCM1000000b205a0aRCRD",
+            "address": {
+                "district": {
+                    "@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Chamartin"
+                },
+                "area": {
+                    "@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Chamartin/Barrio/NuevaEspana"
+                },
+                "locality": "MADRID",
+                "postal-code": "28036",
+                "street-address": "CALLE JOAQUIN BAU 4"
+            },
+            "location": {
+                "latitude": 40.463788404722166,
+                "longitude": -3.685847945340213
+            },
+            "organization": {
+                "organization-desc": " ENSEÑANZA: Educación infantil - Primaria - ESO - BACHILLERATO (Humanidades y Ciencias Sociales - Ciencias) METRO: Plaza de Castilla BUS: 5 , 27 , 47 , 49 , 66 , 67 , 70 , 80 , 124 , 129 , 134 , 135 , 147 , 149 , 150 , 229",
+                "accesibility": "0",
+                "schedule": "",
+                "services": "Comedor - Transporte - Horario ampliado",
+                "organization-name": "Altair, Colegio Internacional"
+            }
+        },
+        {
+            "@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/11576332-aula-estudio-manoteras-sala-estudio-hortaleza-.json",
+            "@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/SalasEstudioLectura",
+            "id": "11576332",
+            "title": "Aula de estudio de Manoteras. Sala de estudio (Hortaleza)",
+            "relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=27ada5bf3137e710VgnVCM1000001d4a900aRCRD",
+            "address": {
+                "district": {
+                    "@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Hortaleza"
+                },
+                "area": {
+                    "@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Hortaleza/Barrio/ApostolSantiago"
+                },
+                "locality": "MADRID",
+                "postal-code": "28033",
+                "street-address": "CALLE CUEVAS DEL ALMANZORA 187"
+            },
+            "location": {
+                "latitude": 40.477775164880356,
+                "longitude": -3.6583397911756297
+            },
+            "organization": {
+                "organization-desc": "  Metro: Manoteras (línea 4)",
+                "accesibility": "1",
+                "schedule": "De lunes a domingo, de 9 a 14 y de 15 a 21 horas.  Cerrado 1, 5 y 6 de enero, 2 de mayo y 31 de diciembre.",
+                "services": "Aforo: 60 plazas Acceso a ordenadores Wifi",
+                "organization-name": "Aula de estudio de Manoteras. Sala de estudio (Hortaleza)"
+            }
+        }
+    ]
+}

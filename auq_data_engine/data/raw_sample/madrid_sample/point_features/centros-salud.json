@@ -1,0 +1,192 @@
+{
+    "@context": {
+        "c": "http://www.w3.org/2002/12/cal#",
+        "dcterms": "http://purl.org/dc/terms/",
+        "geo": "http://www.w3.org/2003/01/geo/wgs84_pos#",
+        "loc": "http://purl.org/ctic/infraestructuras/localizacion#",
+        "org": "http://purl.org/ctic/infraestructuras/organizacion#",
+        "vcard": "http://www.w3.org/2006/vcard/ns#",
+        "schema": "https://schema.org/",
+        "title": "vcard:fn",
+        "id": "dcterms:identifier",
+        "relation": "dcterms:relation",
+        "references": "dcterms:references",
+        "address": "vcard:adr",
+        "area": "loc:barrio",
+        "district": "loc:distrito",
+        "locality": "vcard:locality",
+        "postal-code": "vcard:postal-code",
+        "street-address": "vcard:street-address",
+        "location": "vcard:geo",
+        "latitude": "geo:lat",
+        "longitude": "geo:long",
+        "organization": "vcard:org",
+        "organization-desc": "dcterms:description",
+        "accesibility": "org:accesibilidad",
+        "services": "org:servicios",
+        "schedule": "org:horario",
+        "organization-name": "vcard:organization-name",
+        "description": "c:summary",
+        "link": "c:url",
+        "uid": "c:uid",
+        "dtstart": "c:dtstart",
+        "dtend": "c:dtend",
+        "time": "c:time",
+        "excluded-days": "c:exdate",
+        "event-location": "c:location",
+        "free": "schema:free",
+        "price": "c:resource",
+        "recurrence": "c:rrule",
+        "days": "c:byday",
+        "frequency": "c:freq",
+        "interval": "c:interval",
+        "audience": "dc:audience"
+    },
+    "@graph": [
+        {
+            "@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/5855213-centro-concertado-adicciones-ccad-centro-cruz-roja-.json",
+            "@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosAtencionMedica/CentrosAsistenciaDrogodependientes",
+            "id": "5855213",
+            "title": "Centro Concertado de adicciones (CCAD) Centro (Cruz Roja)",
+            "relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=c5dc3e042111c210VgnVCM2000000c205a0aRCRD",
+            "address": {
+                "district": {
+                    "@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Centro"
+                },
+                "area": {
+                    "@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Centro/Barrio/Justicia"
+                },
+                "locality": "MADRID",
+                "postal-code": "28004",
+                "street-address": "CALLE HERMANOS ALVAREZ QUINTERO 3"
+            },
+            "location": {
+                "latitude": 40.42747404776084,
+                "longitude": -3.697485377509971
+            },
+            "organization": {
+                "organization-desc": "El Centro concertado de adicciones Centro forma parte de la red del Instituto de Adicciones de la Ciudad de Madrid, presta una atención personalizada individual y/o grupal en régimen ambulatorio a las personas que presentan problemas de abuso o dependencia del alcohol y de otras drogas. Forma de acceso: directo Metro: Alonso Martínez, L4, L5, L10",
+                "accesibility": "1",
+                "schedule": "De lunes a viernes de 9 a 17 horas",
+                "services": "Valoración interdisciplinar del/de la paciente. Tratamiento integral que además de abordar el propio consumo, contempla aspectos sanitarios, psicológicos, sociales y ocupacionales. Intervenciones de reducción del daño y riesgos dirigidas a disminuir los efectos del consumo de drogas y conseguir mejoras en la salud cuando no se consigue la abstinencia. Tratamientos farmacológicos, incluyen la utilización de tratamientos con sustitutivos opiáceos como metadona. Apoyo a la integración social y laboral del/de la paciente. Intervención con las familias, tanto con las que acompañan a la persona directamente afectada, como con aquellas otras que solicitan ayuda sin que el consumidor haya decidido ponerse en tratamiento. Derivación a recursos externos de apoyo al tratamiento y a la reinserción social, que complementan y apoyan el trabajo realizado desde los CAD.",
+                "organization-name": "Centro Concertado de adicciones (CCAD) Centro (Cruz Roja)"
+            }
+        },
+        {
+            "@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/134929-centro-concertado-atencion-adicciones-ccad-caritas-madrid.json",
+            "@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosAtencionMedica/CentrosAsistenciaDrogodependientes",
+            "id": "134929",
+            "title": "Centro Concertado de Atención a las Adicciones (CCAD) Cáritas Madrid",
+            "relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=13ba654d9d91f010VgnVCM2000000c205a0aRCRD",
+            "address": {
+                "district": {
+                    "@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Chamartin"
+                },
+                "area": {
+                    "@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Chamartin/Barrio/Prosperidad"
+                },
+                "locality": "MADRID",
+                "postal-code": "28002",
+                "street-address": "CALLE SANTA HORTENSIA 1"
+            },
+            "location": {
+                "latitude": 40.446053313442704,
+                "longitude": -3.6702766124516515
+            },
+            "organization": {
+                "organization-desc": "El CCAD Cáritas que forma parte de la red del Instituto de Adicciones de la Ciudad de Madrid, presta una atención personalizada individual y/o grupal en régimen ambulatorio a las personas que presentan problemas de abuso o dependencia del alcohol y de otras drogas.  Bus: 9, 73, N2Metro: Alfonso XIII (L4), Prosperidad (L4) Bicicletas:  Servicio Bicimad, para consultar la estación más cercana, acceda al mapa de geolocalización de las estaciones.",
+                "accesibility": "1",
+                "schedule": "De lunes a viernes mañanas de 9 a 14 horas, tardes de 15:30 a 18 horas",
+                "services": "Valoración interdisciplinar del/de la paciente. Tratamiento integral que además de abordar el propio consumo, contempla aspectos sanitarios, psicológicos, sociales y ocupacionales. Intervenciones de reducción del daño y riesgos dirigidas a disminuir los efectos del consumo de drogas y conseguir mejoras en la salud cuando no se consigue la abstinencia. Tratamientos farmacológicos, incluyen la utilización de tratamientos con sustitutivos opiáceos como metadona. Apoyo a la integración social y laboral del paciente. Intervención con las familias, tanto con las que acompañan a la persona directamente afectada, como con aquellas otras que solicitan ayuda sin que el consumidor haya decidido ponerse en tratamiento. Derivación a recursos externos de apoyo al tratamiento y a la reinserción social, que complementan y apoyan el trabajo realizado desde los CAD.",
+                "organization-name": "Centro Concertado de Atención a las Adicciones (CCAD) Cáritas Madrid"
+            }
+        },
+        {
+            "@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/53123-centro-concertado-atencion-adicciones-ccad-casa-campo-cruz-roja-.json",
+            "@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosAtencionMedica/CentrosAsistenciaDrogodependientes",
+            "id": "53123",
+            "title": "Centro Concertado de Atención a las Adicciones (CCAD) Casa de Campo (Cruz Roja)",
+            "relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=97d3598d1351c010VgnVCM1000000b205a0aRCRD",
+            "address": {
+                "district": {
+                    "@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Latina"
+                },
+                "area": {
+                    "@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Latina/Barrio/PuertaAngel"
+                },
+                "locality": "MADRID",
+                "postal-code": "28011",
+                "street-address": "AVENIDA PORTUGAL"
+            },
+            "location": {
+                "latitude": 40.41633059885888,
+                "longitude": -3.7239914257003304
+            },
+            "organization": {
+                "organization-desc": "El CCAD  Casa de Campo que forma parte de la red del Instituto de Adicciones de la Ciudad de Madrid, presta una atención personalizada individual y/o grupal en régimen ambulatorio a las personas que presentan problemas de abuso o dependencia del alcohol y de otras drogas. Forma de acceso: directo Bus: 31, 33, 36, 39, 65, 138 Metro:Puerta del Angel (L6), Lago (L10) Bicicletas:  Servicio Bicimad, para consultar la estación más cercana, acceda al mapa de geolocalización de las estaciones.",
+                "accesibility": "1",
+                "schedule": "De lunes a viernes de 9 a 17 horas",
+                "services": "Valoración interdisciplinar del paciente. Tratamiento integral que además de abordar el propio consumo, contempla aspectos sanitarios, psicológicos, sociales y ocupacionales. Intervenciones de reducción del daño y riesgos dirigidas a disminuir los efectos del consumo de drogas y conseguir mejoras en la salud cuando no se consigue la abstinencia. Tratamientos farmacológicos, incluyen la utilización de tratamientos con sustitutivos opiáceos como metadona. Apoyo a la integración social y laboral del/de la paciente. Intervención con las familias, tanto con las que acompañan a la persona directamente afectada, como con aquellas otras que solicitan ayuda sin que el consumidor haya decidido ponerse en tratamiento. Derivación a recursos externos de apoyo al tratamiento y a la reinserción social, que complementan y apoyan el trabajo realizado desde los CAD.",
+                "organization-name": "Centro Concertado de Atención a las Adicciones (CCAD) Casa de Campo (Cruz Roja)"
+            }
+        },
+        {
+            "@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/11867-centro-atencion-adicciones-cad-arganzuela.json",
+            "@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosAtencionMedica/CentrosAsistenciaDrogodependientes",
+            "id": "11867",
+            "title": "Centro de Atención a las Adicciones (CAD) de Arganzuela",
+            "relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=de74d4985261c010VgnVCM1000000b205a0aRCRD",
+            "address": {
+                "district": {
+                    "@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Arganzuela"
+                },
+                "area": {
+                    "@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Arganzuela/Barrio/Chopera"
+                },
+                "locality": "MADRID",
+                "postal-code": "28045",
+                "street-address": "PASEO CHOPERA 12"
+            },
+            "location": {
+                "latitude": 40.39305745803064,
+                "longitude": -3.6980673403694104
+            },
+            "organization": {
+                "organization-desc": "Se trata de un centro público que proporciona atención personalizada a las personas con una adicción y también a sus familias. Atiende tanto a adolescentes y jóvenes como a personas adultas con adicciones por alcohol y/u otras sustancias, por juego de azar y por uso inadecuado de pantallas (redes sociales, videojuegos e internet). Cuenta con un equipo multidisciplinar formado por profesionales de la medicina, trabajo social, terapia ocupacional, enfermería y psicología, así como con servicios de prevención de adicciones (educación social y orientación familiar) y orientación laboral. Forma de acceso: directo, a través de los servicios municipales, servicios de salud o entidades comunitarias.  Ámbito de actuación:  Distrito de Arganzuela Distrito de Centro Distrito de Retiro Distrito de Salamanca Bus: 6 , 8 , 18 , 19 , 22 , 45 , 47 , 76 , 78 , 79 , 85 , 86 , 88 , 123 , 148 , 247Metro: Legazpi (L 3 y L 6) Bicicletas:  Servicio Bicimad, para consultar la estación más cercana, acceda al mapa de geolocalización de las estaciones.",
+                "accesibility": "1",
+                "schedule": "Horario ordinario:   De septiembre a junio:   De lunes a jueves de 8:30 a 19:30 horas Viernes de 8:30 a 14:30 horas   Horario verano:  Del 15 al 30 de junio y del 1 al 15 de septiembre  De lunes a jueves de 8 a 19:30 horas  Viernes de 8 a 14:00 horas     Del 1 de julio al 31 de agosto  De lunes a viernes 8:30 a 13:45",
+                "services": "Valoración interdisciplinar de cada usuario.  Atención preventiva adaptada a las características de cada usuario y de su familia: motivación, orientación, intervención preventiva o tratamiento en caso necesario. Tratamiento integral que, además de abordar el propio consumo, contempla aspectos sanitarios, psicológicos, sociales y ocupacionales. Intervenciones de reducción del daño y riesgos dirigidas a disminuir los efectos del consumo de drogas y conseguir mejoras en la salud cuando no se consigue la abstinencia.  Intervención con las familias, tanto con las que acompañan a la persona directamente afectada, como con aquellas otras que solicitan ayuda sin que el consumidor haya decidido ponerse en tratamiento.  Tratamientos farmacológicos que pueden incluir la utilización de tratamientos con sustitutivos opiáceos como metadona. Apoyo a la integración social y laboral del usuario.  Derivación temporal a recursos externos de apoyo al tratamiento y a la reinserción social, que complementan y apoyan el trabajo realizado desde los CAD. Contamos con recursos hospitalarios y residenciales terapéuticos.",
+                "organization-name": "Centro de Atención a las Adicciones (CAD) de Arganzuela"
+            }
+        },
+        {
+            "@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/11887-centro-atencion-adicciones-cad-hortaleza.json",
+            "@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosAtencionMedica/CentrosAsistenciaDrogodependientes",
+            "id": "11887",
+            "title": "Centro de Atención a las Adicciones (CAD) de Hortaleza",
+            "relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=25a4d4985261c010VgnVCM1000000b205a0aRCRD",
+            "address": {
+                "district": {
+                    "@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Hortaleza"
+                },
+                "area": {
+                    "@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Hortaleza/Barrio/Canillas"
+                },
+                "locality": "MADRID",
+                "postal-code": "28043",
+                "street-address": "CALLE MINAYA 7"
+            },
+            "location": {
+                "latitude": 40.468288815918534,
+                "longitude": -3.636150078507109
+            },
+            "organization": {
+                "organization-desc": "Se trata de un centro público que proporciona atención personalizada a las personas con una adicción y también a sus familias. Atiende tanto a adolescentes y jóvenes como a personas adultas con adicciones por alcohol y/u otras sustancias, por juego de azar y por uso inadecuado de pantallas (redes sociales, videojuegos e internet). Cuenta con un equipo multidisciplinar formado por profesionales de la medicina, trabajo social, terapia ocupacional, enfermería y psicología, así como con servicios de prevención de adicciones (educación social y orientación familiar) y orientación laboral. Acceso: directo, a través de los servicios municipales, servicios de salud o entidades comunitarias  Ámbito de actuación:  Distrito de Hortaleza Distrito de Chamartín Distrito de Barajas Distrito Ciudad Lineal los barrios: San Juan Bautista, Colina, Atalaya y Costillares Bus: 73, 87, 104, 112, 120, 125, 153, 172Metro: Mar de Cristal (L4, L8) Bicicletas:  Servicio Bicimad, para consultar la estación más cercana, acceda al mapa de geolocalización de las estaciones.",
+                "accesibility": "1",
+                "schedule": "Horario ordinario:   De septiembre a junio:   De lunes a jueves de 8:30 a 19:30 horas Viernes de 8:30 a 14:30 horas   Horario verano:  Del 15 al 30 de junio y del 1 al 15 de septiembre  De lunes a jueves de 8 a 19:30 horas Viernes de 8 a 14:00 horas   Del 1 de julio al 31 de agosto  De lunes a viernes de 8:30 a 13:45 horas",
+                "services": "Valoración interdisciplinar de cada usuario.  Atención preventiva adaptada a las características de cada usuario y de su familia: motivación, orientación, intervención preventiva o tratamiento en caso necesario. Tratamiento integral que, además de abordar el propio consumo, contempla aspectos sanitarios, psicológicos, sociales y ocupacionales. Intervenciones de reducción del daño y riesgos dirigidas a disminuir los efectos del consumo de drogas y conseguir mejoras en la salud cuando no se consigue la abstinencia.  Intervención con las familias, tanto con las que acompañan a la persona directamente afectada, como con aquellas otras que solicitan ayuda sin que el consumidor haya decidido ponerse en tratamiento.  Tratamientos farmacológicos que pueden incluir la utilización de tratamientos con sustitutivos opiáceos como metadona. Apoyo a la integración social y laboral del usuario.  Derivación temporal a recursos externos de apoyo al tratamiento y a la reinserción social, que complementan y apoyan el trabajo realizado desde los CAD. Contamos con recursos hospitalarios y residenciales terapéuticos.",
+                "organization-name": "Centro de Atención a las Adicciones (CAD) de Hortaleza"
+            }
+        }
+    ]
+}
