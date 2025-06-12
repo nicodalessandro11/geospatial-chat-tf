@@ -34,7 +34,7 @@ City (geo_level_id=1)
 SELECT g.name, i.value, i.unit
 FROM geographical_unit_view g 
 JOIN current_indicators_view i ON g.geo_id = i.geo_id AND g.geo_level_id = i.geo_level_id
-WHERE g.geo_level_id = 2 AND g.city_id = 1 AND i.indicator_name = 'Population'
+WHERE g.geo_level_id = 2 AND i.indicator_name = 'Population'
 ORDER BY i.value DESC;
 ```
 
@@ -45,7 +45,7 @@ SELECT g.name, COUNT(pf.id) as school_count
 FROM geographical_unit_view g
 LEFT JOIN point_features pf ON g.geo_id = pf.geo_id AND g.geo_level_id = pf.geo_level_id
 LEFT JOIN feature_definitions fd ON pf.feature_definition_id = fd.id
-WHERE g.geo_level_id = 2 AND g.city_id = 1 AND fd.name = 'school'
+WHERE g.geo_level_id = 2 AND fd.name = 'school'
 GROUP BY g.geo_id, g.name
 ORDER BY school_count DESC;
 ```
@@ -55,26 +55,39 @@ ORDER BY school_count DESC;
 -- Population growth over time
 SELECT year, SUM(value) as total_population
 FROM time_series_indicators_view 
-WHERE geo_level_id = 1 AND city_id = 1 AND indicator_name = 'Population'
+WHERE geo_level_id = 1 AND indicator_name = 'Population'
 GROUP BY year
 ORDER BY year;
 ```
 
 ### Comparative Analysis
 ```sql
--- Top 5 districts by indicator
-SELECT g.name, i.value, i.unit
+-- Top 5 districts by indicator (specific city)
+SELECT g.name, i.value, i.unit, c.name as city_name
 FROM geographical_unit_view g
 JOIN current_indicators_view i ON g.geo_id = i.geo_id AND g.geo_level_id = i.geo_level_id
-WHERE g.geo_level_id = 2 AND g.city_id = 1 AND i.indicator_name = 'Population Density'
+JOIN cities c ON g.city_id = c.id
+WHERE g.geo_level_id = 2 AND i.indicator_name = 'Population Density' AND c.name = 'Barcelona'
 ORDER BY i.value DESC
 LIMIT 5;
+```
+
+### Multi-City Queries
+```sql
+-- Compare cities
+SELECT c.name as city, SUM(i.value) as total_population
+FROM geographical_unit_view g
+JOIN current_indicators_view i ON g.geo_id = i.geo_id AND g.geo_level_id = i.geo_level_id  
+JOIN cities c ON g.city_id = c.id
+WHERE g.geo_level_id = 1 AND i.indicator_name = 'Population'
+GROUP BY c.name
+ORDER BY total_population DESC;
 ```
 
 ## CRITICAL RULES
 
 1. **ALWAYS use views** - Never query raw tables directly
-2. **Geographic filtering**: Include `city_id = 1` for Barcelona or appropriate city
+2. **Geographic filtering**: Always specify city when needed. Use `city_id = 1` for Barcelona, `city_id = 2` for Madrid, or query cities table for available cities
 3. **Level filtering**: Always specify `geo_level_id` (1=city, 2=district, 3=neighbourhood)
 4. **Name resolution**: Use `g.name` from geographical_unit_view for human-readable names
 5. **Latest data**: Use `current_indicators_view` for most recent values
