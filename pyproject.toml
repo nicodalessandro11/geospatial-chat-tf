@@ -1,28 +1,181 @@
-[project]
-name = "areuqueryous"
-version = "0.1.0"
-description = "ETL tools and geospatial data ingestion for the Are-u-Queryous project"
-readme = "README.md"
-authors = [
-  { name = "Nico D'Alessandro Calderon" }
-]
-license = "MIT"
-requires-python = ">=3.11"
-
-dependencies = [
-  "requests",
-  "shapely",
-  "geopandas",
-  "pandas",
-  "python-dotenv",
-  "supabase",
-  "pytest"
-]
-
 [build-system]
-requires = ["setuptools>=64", "wheel"]
+requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.2"]
 build-backend = "setuptools.build_meta"
 
+[project]
+name = "auq_nlp"
+version = "2.0.0"
+description = "Are U Query-ous - Natural Language Processing API for Urban Analytics"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "Nicolas Dalessandro", email = "nicodalessandro11@gmail.com"}
+]
+maintainers = [
+    {name = "Nicolas Dalessandro", email = "nicodalessandro11@gmail.com"}
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Text Processing :: Linguistic",
+]
+keywords = [
+    "nlp",
+    "natural-language-processing", 
+    "langchain",
+    "openai",
+    "sql",
+    "urban-analytics",
+    "geospatial",
+    "fastapi",
+    "api",
+]
+requires-python = ">=3.8"
+dependencies = [
+    "fastapi>=0.104.0",
+    "uvicorn[standard]>=0.24.0",
+    "pydantic>=2.0.0",
+    "pydantic-settings>=2.0.0",
+    "langchain>=0.0.350",
+    "langchain-community>=0.0.10",
+    "langchain-openai>=0.0.5",
+    "openai>=1.0.0",
+    "psycopg2-binary>=2.9.7",
+    "sqlalchemy>=2.0.0",
+    "python-dotenv>=1.0.0",
+    "httpx>=0.25.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+    "pytest-cov>=4.0.0",
+    "black>=23.0.0",
+    "isort>=5.12.0",
+    "flake8>=6.0.0",
+    "mypy>=1.0.0",
+    "pre-commit>=3.0.0",
+]
+test = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+    "pytest-cov>=4.0.0",
+    "httpx>=0.24.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/nicolasdalessandro/auq-nlp"
+Documentation = "https://github.com/nicolasdalessandro/auq-nlp/blob/main/README.md"
+Repository = "https://github.com/nicolasdalessandro/auq-nlp"
+"Bug Tracker" = "https://github.com/nicolasdalessandro/auq-nlp/issues"
+
+[project.scripts]
+auq-nlp = "auq_nlp.api.main:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
 [tool.setuptools.packages.find]
-where = ["."]
-include = ["auq_data_engine*"] 
+where = ["src"]
+
+[tool.setuptools.package-data]
+auq_nlp = ["config/prompts/*.txt", "docs/*.md"]
+
+# Black configuration
+[tool.black]
+line-length = 88
+target-version = ['py38', 'py39', 'py310', 'py311']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  # directories
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | build
+  | dist
+)/
+'''
+
+# isort configuration
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+line_length = 88
+known_first_party = ["auq_nlp"]
+skip_glob = ["*/migrations/*"]
+
+# pytest configuration
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q --strict-markers --strict-config"
+testpaths = ["tests"]
+asyncio_mode = "auto"
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+    "integration: marks tests as integration tests",
+    "unit: marks tests as unit tests",
+]
+
+# Coverage configuration
+[tool.coverage.run]
+source = ["src"]
+omit = [
+    "*/tests/*",
+    "*/test_*",
+    "*/__pycache__/*",
+    "*/migrations/*",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "if self.debug:",
+    "if settings.DEBUG",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if 0:",
+    "if __name__ == .__main__.:",
+    "class .*\\bProtocol\\):",
+    "@(abc\\.)?abstractmethod",
+]
+
+# MyPy configuration
+[tool.mypy]
+python_version = "3.8"
+check_untyped_defs = true
+disallow_any_generics = true
+disallow_incomplete_defs = true
+disallow_untyped_defs = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_return_any = true
+strict_equality = true
+show_error_codes = true
+
+[[tool.mypy.overrides]]
+module = [
+    "langchain.*",
+    "langchain_community.*",
+    "langchain_openai.*",
+    "psycopg2.*",
+    "uvicorn.*",
+]
+ignore_missing_imports = true 

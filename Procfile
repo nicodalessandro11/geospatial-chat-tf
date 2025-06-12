@@ -1,1 +1,1 @@
-web: cd auq_nlp && uvicorn api:app --host 0.0.0.0 --port $PORT 
+web: cd auq_nlp && python run.py --host 0.0.0.0 --port $PORT 
