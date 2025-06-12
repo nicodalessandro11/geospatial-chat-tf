@@ -114,13 +114,22 @@ export const useNLPAgent = () => {
     setError(null);
 
     try {
-      const response = await apiCall<QuestionResponse>('/ask', {
+      const response = await apiCall<any>('/query', {
         method: 'POST',
         body: JSON.stringify(request),
       });
 
-      setLastResponse(response);
-      return response;
+      // Transform the response to match the expected interface
+      const transformedResponse: QuestionResponse = {
+        success: response.success,
+        question: response.question,
+        answer: response.answer,
+        execution_time: response.processing_time_seconds,
+        error: response.error,
+      };
+
+      setLastResponse(transformedResponse);
+      return transformedResponse;
     } catch (err) {
       const errorResponse: QuestionResponse = {
         success: false,
@@ -137,14 +146,26 @@ export const useNLPAgent = () => {
 
   // Check API health
   const checkHealth = useCallback(async (): Promise<HealthResponse> => {
-    return await apiCall<HealthResponse>('/health');
+    const response = await apiCall<any>('/status');
+    // Transform the response to match the expected interface
+    return {
+      status: response.status,
+      database_connected: response.agent_status?.database_connected || false,
+      openai_connected: response.agent_status?.agent_ready || false,
+      agent_ready: response.agent_status?.agent_ready || false,
+    };
   }, [apiCall]);
 
-  // Get example questions
+  // Get example questions (hardcoded since API doesn't have this endpoint)
   const getExamples = useCallback(async (): Promise<string[]> => {
-    const response = await apiCall<ExamplesResponse>('/examples');
-    return response.examples;
-  }, [apiCall]);
+    return [
+      "¿Qué distrito tiene más habitantes?",
+      "¿Cuántos distritos hay en total?", 
+      "¿Qué distrito tiene el mayor ingreso promedio?",
+      "¿Cuántos habitantes tiene Barcelona?",
+      "¿Qué ciudades están disponibles en la base de datos?",
+    ];
+  }, []);
 
   // Quick ask function with just a string
   const ask = useCallback(async (question: string, language?: 'auto' | 'es' | 'en'): Promise<string> => {
