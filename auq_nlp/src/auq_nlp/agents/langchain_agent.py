@@ -156,12 +156,12 @@ class LangChainAgent:
             # Create toolkit
             self.toolkit = SQLDatabaseToolkit(db=self.db, llm=self.llm)
             
-            # Create agent
+            # Create agent with enhanced professional prompt
             self.agent = create_sql_agent(
                 llm=self.llm,
                 toolkit=self.toolkit,
                 verbose=settings.debug,
-                prompt=self.custom_prompt,
+                prompt=self.custom_prompt,  # Re-enabled with professional prompt
                 handle_parsing_errors=True
             )
             
