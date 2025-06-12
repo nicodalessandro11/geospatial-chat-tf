@@ -197,6 +197,18 @@ class PrecompiledQueries:
             return f"Results: {results}"
         
         return f"Results: {results}"
+    
+    @classmethod
+    def get_response(cls, question: str) -> Optional[Dict[str, Any]]:
+        """Get a precompiled response for a question if available"""
+        matching_query = cls.find_matching_query(question)
+        if matching_query:
+            return {
+                "sql": matching_query["sql"],
+                "template": matching_query["response_template"],
+                "found": True
+            }
+        return None
 
 
 # Global cache instance

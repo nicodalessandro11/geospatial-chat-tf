@@ -1,0 +1,41 @@
+# Preguntas de prueba basadas en el schema:
+
+## Geográficas:
+- ¿Cuáles son los distritos de Barcelona?
+- ¿Cuántos barrios hay en total?
+- ¿Qué barrios pertenecen al distrito de Eixample?
+
+## Demográficas:
+- ¿Cuál es la población de Gràcia?
+- ¿Qué distrito tiene más habitantes?
+- ¿Cuál es la densidad poblacional por distrito?
+
+## Infraestructura:
+- ¿Cuántos colegios hay en Sarrià-Sant Gervasi?
+- ¿Dónde están los hospitales en Barcelona?
+- ¿Qué puntos de interés hay cerca de Plaça Catalunya?
+
+## Comparativas:
+- Compara la población entre Eixample y Gràcia
+- ¿Cuál es el barrio más grande en superficie?
+- ¿Qué distrito tiene más parques?
+
+## Estructuras clave del schema:
+- cities (id, name)
+- districts (id, name, district_code, city_id)
+- neighbourhoods (id, name, neighbourhood_code, district_id, city_id)
+- indicators (indicator_def_id, geo_level_id, geo_id, city_id, year, value)
+- indicator_definitions (id, name, unit, description, category)
+- point_features (feature_definition_id, name, latitude, longitude, geo_level_id, geo_id, city_id)
+- feature_definitions (id, name, description)
+
+## Vistas importantes:
+- geographical_unit_view (geo_level_id: 1=City, 2=District, 3=Neighborhood)
+- current_indicators_view (datos más recientes por área)
+- time_series_indicators_view (series temporales)
+
+## Tipos de indicadores posibles:
+- Population
+- Surface  
+- Demographics
+- Infrastructure counts 

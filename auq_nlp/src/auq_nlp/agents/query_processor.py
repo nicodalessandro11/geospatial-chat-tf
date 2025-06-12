@@ -144,8 +144,10 @@ class QueryProcessor:
         result = self.precompiled.get_response(question)
         if result:
             info(f"Precompiled query match found")
+            # Return a simple response for now - TODO: Execute SQL and format properly
+            return f"Found precompiled query for: {question}. SQL: {result.get('sql', '')}"
         
-        return result
+        return None
     
     def _build_context(self, context: str, conversation_history: Optional[list]) -> str:
         """Build enriched context from provided context and conversation history"""

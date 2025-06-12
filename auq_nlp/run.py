@@ -92,25 +92,18 @@ Examples:
 
 def validate_environment():
     """Validate environment variables and configuration"""
-    required_env_vars = ["SUPABASE_URI", "OPENAI_API_KEY"]
-    missing_vars = []
-    
-    for var in required_env_vars:
-        if not os.getenv(var):
-            missing_vars.append(var)
-    
-    if missing_vars:
-        error(f"Missing required environment variables: {', '.join(missing_vars)}")
-        error("Please set these variables in your .env file or environment")
-        return False
-    
-    # Validate paths
     try:
+        # Test if we can access the required settings
+        _ = settings.supabase_uri
+        _ = settings.openai_api_key
+        
+        # Validate paths
         settings.validate_paths()
         success("Configuration validation passed")
         return True
     except Exception as e:
         error(f"Configuration validation failed: {e}")
+        error("Please check your .env file has SUPABASE_URI and OPENAI_API_KEY")
         return False
 
 
