@@ -10,7 +10,7 @@ Version: 1.0.0
 
 from typing import Any, List, Dict, Optional, Union
 import re
-from common_lib.emoji_logger import warning, error, info
+from auq_nlp.utils.logging import warning, error, info
 
 
 class ResultValidator:
